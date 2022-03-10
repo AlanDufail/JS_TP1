@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img onClick="rotate()" src="https://m1.quebecormedia.com/emp/emp/matrixcbbb9deff-9126-47fc-b1fe-85c645ff9b6c_ORIGINAL.jpg?impolicy=crop-resize&x=0&y=0&w=0&h=0&width=925&height=925" alt="" style="width: 150px; height: 150px;">
+    
+    <script>
+      /*Question 1*/
+      let rotation = 0;
+      function rotate(){
+        rotation += 90;
+        document.querySelector("img").style.transform = `rotate(${rotation}deg)`;
+      }
+    </script>
+  </body>
+</html>

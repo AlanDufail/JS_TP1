@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    <script>
+
+        let div = document.createElement("div");
+        div.id = 'block';
+        div.style.backgroundColor = 'pink'; 
+        div.style.height = '50px';
+        div.style.width = '50px';
+        document.getElementsByTagName('body')[0].appendChild(div);
+
+        document.onkeydown = pushKey;
+
+        function pushKey(e){
+            let topPos = document.getElementById('block').offsetTop;
+        }        
+    </script>
+</body>
+</html>

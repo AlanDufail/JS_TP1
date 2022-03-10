@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img1" src="https://fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2FFAC.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fculture.2Fnews-culture.2Felsa-la-reine-des-neige-premiere-lesbienne-de-disney-29709.2F14044768-1-fre-FR.2Fla-reine-des-neiges-premiere-princesse-lesbienne-de-disney.2Ejpg/1200x900/quality/80/crop-from/center/la-reine-des-neiges-2-elsa-premiere-princesse-lesbienne-de-disney.jpeg" alt="" style="width: 150px;height: 150px;">
+    
+    <img id="img2" src="https://m1.quebecormedia.com/emp/emp/matrixcbbb9deff-9126-47fc-b1fe-85c645ff9b6c_ORIGINAL.jpg?impolicy=crop-resize&x=0&y=0&w=0&h=0&width=925&height=925" alt="" style="width: 150px;height: 150px;">
+
+    <script>
+
+        let img = document.querySelectorAll("img");        
+        img.forEach(element => {
+            element.addEventListener('click', modifyStyle);
+        });
+
+        
+        
+        function modifyStyle(e){
+            console.log(this.id);
+            let img = parseFloat(this.style.width) * 1.2;
+            console.log(img)
+            this.style.width = `${img}px`;
+            
+            let img2 = document.querySelector(`img:not(#${e.target.id})`);
+            console.log(img2.id)
+            img2.style.width = `${parseFloat(img2.style.width)*0.2}px`; 
+            
+        }
+
+    </script>
+</body>
+</html>
