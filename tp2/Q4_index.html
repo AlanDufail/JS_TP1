@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-
-    
-
+  </head>
+  <body>
     <script>
+      let div = document.createElement("div");
+      div.id = "block";
+      div.style.backgroundColor = "pink";
+      div.style.height = "50px";
+      div.style.width = "50px";
+      document.getElementsByTagName("body")[0].appendChild(div);
 
-        let div = document.createElement("div");
-        div.id = 'block';
-        div.style.backgroundColor = 'pink'; 
-        div.style.height = '50px';
-        div.style.width = '50px';
-        document.getElementsByTagName('body')[0].appendChild(div);
+      document.onkeydown = pushKey;
 
-        document.onkeydown = pushKey;
+      function pushKey(e) {
+        let topPos = document.getElementById("block").offsetTop;
+        let LeftPos = document.getElementById("block").offsetLeft;
 
-        function pushKey(e){
-            let topPos = document.getElementById('block').offsetTop;
-        }        
+        e = e || window.event;
+        if (e.keyCode == "38") {
+          // up arrow
+          document.getElementById("block").style.marginTop = topPos - 58 + "px";
+        } else if (e.keyCode == "40") {
+          // down arrow
+          document.getElementById("block").style.marginTop = topPos + 58 + "px";
+        } else if (e.keyCode == "37") {
+          // left arrow
+          document.getElementById("block").style.marginLeft =
+            LeftPos - 58 + "px";
+        } else if (e.keyCode == "39") {
+          // right arrow
+          document.getElementById("block").style.marginLeft =
+            LeftPos + 58 + "px";
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
