@@ -6,16 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
+
+
     <body data-title="La Banque Postale : banque citoyenne"><div><svg id="daltonize-filters">  <filter id="protanopia">    <feColorMatrix values="0.56667 0.43333 0.00000 0 0                           0.55833 0.44167 0.00000 0 0                           0.00000 0.24167 0.75833 0 0                           0 0 0 1 0"></feColorMatrix>  </filter>  <filter id="deuteranopia">    <feColorMatrix values="0.4251 0.6934 -0.1147 0 0                           0.3417 0.5882 0.0692 0 0                           -0.0105 0.0234 0.9870 0 0                           0 0 0 1 0"></feColorMatrix>  </filter>  <filter id="tritanopia">    <feColorMatrix values="0.95000 0.05000 0.00000 0 0                           0.00000 0.83333 0.16700 0 0                           0.00000 0.87500 0.12500 0 0                           0 0 0 1 0"></feColorMatrix>  </filter>  <filter id="monochromacy">    <feColorMatrix values="0.33 0.33 0.33 0 0                           0.33 0.33 0.33 0 0                           0.33 0.33 0.33 0 0                           0 0 0 1 0"></feColorMatrix>  </filter>  <filter id="enhance-r">    <feColorMatrix values="1.00 0.00 0.00 0 0                           0.00 1.00 0.00 0 0                           1.00 0.00 0.00 0 0                           0 0 0 1 0"></feColorMatrix>  </filter>  <filter id="enhance-g">    <feColorMatrix values="1.00 0.00 0.00 0 0                           0.00 1.00 0.00 0 0                           0.00 1.00 0.00 0 0                           0 0 0 1 0"></feColorMatrix>  </filter></svg></div><script type="text/javascript" async="" src="https://cdn.trustcommander.net/privacy/2623/privacy_v2_66.js" charset="utf-8" id="tc_script_0.8703562400537774"></script>
             
     
@@ -5728,11 +5721,19 @@
         
         
         <script>
-            let deleteP = document.querySelectorAll("p");
-            console.log(deleteP);
-            deleteP.forEach(element => {
-                element.remove();
+            
+            var elm = document.querySelectorAll('*');
+            elm.forEach((element) => {
+                element.addEventListener("mouseover", changeColor);
+                element.addEventListener("mouseout", initialColor);
             });
+
+            function changeColor(e){
+                e.target.style.color = "red";
+            }
+            function initialColor(e){
+                e.target.style.color = "";
+            }
         </script>
         
             
@@ -5755,8 +5756,7 @@
         
             
         
-        <div id="privacy-overlay-banner"></div><div id="tc-privacy-wrapper" class="tc-privacy-wrapper tc-privacy-override"><div id="footer_tc_privacy" class="tc-reset-css tc-privacy-banner tc-privacy-bar tc-privacy-footer" role="dialog" aria-modal="true" tabindex="-1" aria-label="Acceptation et gestion des cookies"><div role="document"><div id="footer_tc_privacy_container_text" class="tc-reset-css tc-privacy-block-text tc-privacy-padding-top"><div id="footer_tc_privacy_text" class="tc-reset-css tc-privacy-text"><div id="privacy-title"><div id="privacy-title-image"><img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LaBanquePostale-RVB.svg" alt="La Banque Postale" width="40"></div><div id="privacy-title-text"><span style="color: #17479e;">La Banque Postale</span> <span style="color: #000000;"><strong>respecte votre vie privée</strong></span></div></div><div id="privacy-main-text"><p>Lors de votre navigation sur notre site, <a href="https://www.labanquepostale.fr/particulier/Outils/aide/donnees-personnelles.html" target="_blank" style="color: #000; text-decoration: underline;" title="Voir la politique de confidentialité du groupe (nouvelle fenêtre)">nous et nos filiales </a>utilisons certains cookies qui requièrent votre accord pour être déposés. Les finalités de ces cookies sont les suivantes :</p><ul><li><span style="color: #000; font-weight: bold;">Mesure d’audience :</span> établir des statistiques anonymes de fréquentation du site et améliorer sa performance.</li><li><span style="color: #000; font-weight: bold;">Personnalisation :</span> personnaliser en temps réel des contenus de notre site.</li><li><span style="color: #000; font-weight: bold;">Publicités :</span>&nbsp;permettre à nos partenaires publicitaires de vous adresser des publicités correspondant à vos centres d’intérêts sur notre site ou en dehors de notre site.</li></ul><p>En cliquant sur « Continuer sans accepter », vous indiquez votre refus et seuls les cookies nécessaires au fonctionnement du site seront déposés.</p><p>Vous pouvez modifier vos choix à tout moment ou obtenir plus d'informations via <a href="https://www.labanquepostale.fr/particulier/Outils/aide/cookies.html" target="_blank" style="color: #000; text-decoration: underline;" title="En savoir plus sur les cookies (nouvelle fenêtre)">notre politique de cookies</a>.</p></div></div></div><div id="footer_tc_privacy_container_button" class="tc-reset-css tc-privacy-block-button"><button id="footer_tc_privacy_button_3" class="tc-reset-css tc-privacy-button tc-privacy-button-top" type="button" title="Continuer sans accepter" onclick="javascript:tC.privacy.In(tC.privacyID, tC.privacyVersion, &quot;1&quot;, &quot;1&quot;, &quot;banner_button&quot;)">Continuer sans accepter</button><button id="footer_tc_privacy_button_2" class="tc-reset-css tc-privacy-button" type="button" title="Accepter tous les cookies et fermer">ACCEPTER</button><button id="footer_tc_privacy_button" class="tc-reset-css tc-privacy-button" type="button" title="Personnaliser votre choix relatif aux cookies">Personnaliser</button></div></div></div></div></body>
-    </html>
+        <div id="privacy-overlay-banner"></div><div id="tc-privacy-wrapper" class="tc-privacy-wrapper tc-privacy-override"><div id="footer_tc_privacy" class="tc-reset-css tc-privacy-banner tc-privacy-bar tc-privacy-footer" role="dialog" aria-modal="true" tabindex="-1" aria-label="Acceptation et gestion des cookies"><div role="document"><div id="footer_tc_privacy_container_text" class="tc-reset-css tc-privacy-block-text tc-privacy-padding-top"><div id="footer_tc_privacy_text" class="tc-reset-css tc-privacy-text"><div id="privacy-title"><div id="privacy-title-image"><img src="https://www.labanquepostale.fr/content/dam/lbp/images/logo/la-banque-postale/LOGO-LaBanquePostale-RVB.svg" alt="La Banque Postale" width="40"></div><div id="privacy-title-text"><span style="color: #17479e;">La Banque Postale</span> <span style="color: #000000;"><strong>respecte votre vie privée</strong></span></div></div><div id="privacy-main-text"><p>Lors de votre navigation sur notre site, <a href="https://www.labanquepostale.fr/particulier/Outils/aide/donnees-personnelles.html" target="_blank" style="color: #000; text-decoration: underline;" title="Voir la politique de confidentialité du groupe (nouvelle fenêtre)">nous et nos filiales </a>utilisons certains cookies qui requièrent votre accord pour être déposés. Les finalités de ces cookies sont les suivantes :</p><ul><li><span style="color: #000; font-weight: bold;">Mesure d’audience :</span> établir des statistiques anonymes de fréquentation du site et améliorer sa performance.</li><li><span style="color: #000; font-weight: bold;">Personnalisation :</span> personnaliser en temps réel des contenus de notre site.</li><li><span style="color: #000; font-weight: bold;">Publicités :</span>&nbsp;permettre à nos partenaires publicitaires de vous adresser des publicités correspondant à vos centres d’intérêts sur notre site ou en dehors de notre site.</li></ul><p>En cliquant sur « Continuer sans accepter », vous indiquez votre refus et seuls les cookies nécessaires au fonctionnement du site seront déposés.</p><p>Vous pouvez modifier vos choix à tout moment ou obtenir plus d'informations via <a href="https://www.labanquepostale.fr/particulier/Outils/aide/cookies.html" target="_blank" style="color: #000; text-decoration: underline;" title="En savoir plus sur les cookies (nouvelle fenêtre)">notre politique de cookies</a>.</p></div></div></div><div id="footer_tc_privacy_container_button" class="tc-reset-css tc-privacy-block-button"><button id="footer_tc_privacy_button_3" class="tc-reset-css tc-privacy-button tc-privacy-button-top" type="button" title="Continuer sans accepter" onclick="javascript:tC.privacy.In(tC.privacyID, tC.privacyVersion, &quot;1&quot;, &quot;1&quot;, &quot;banner_button&quot;)">Continuer sans accepter</button><button id="footer_tc_privacy_button_2" class="tc-reset-css tc-privacy-button" type="button" title="Accepter tous les cookies et fermer">ACCEPTER</button><button id="footer_tc_privacy_button" class="tc-reset-css tc-privacy-button" type="button" title="Personnaliser votre choix relatif aux cookies">Personnaliser</button></div></div></div></div>
+    </body>
 
-</body>
 </html>
