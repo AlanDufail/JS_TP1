@@ -35,18 +35,20 @@
             Colors.push(divCreation.style.backgroundColor);
             document.getElementsByTagName('body')[0].appendChild(divCreation);          
         }
-        console.log(Colors);
         let div = document.querySelectorAll("div");
         div.forEach(elm=> {
-            elm.addEventListener('click',modifyStyle);
+            elm.addEventListener('click',clickedDiv);
         })
 
-        function modifyStyle(e){
-            let id = e.target.id;
-            e.target.style.backgroundColor = 'red';
-            if(e.target.style.backgroundColor == 'red'){
+        function clickedDiv(e){
+            const id = e.target.id;
+            if(e.target.style.backgroundColor == Colors[id]){
+                e.target.style.backgroundColor = 'red';
+            }
+            else if(e.target.style.backgroundColor == 'red'){
                 e.target.style.backgroundColor = Colors[id];
             }
+
         }
     </script>
 </body>

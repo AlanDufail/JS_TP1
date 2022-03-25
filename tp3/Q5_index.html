@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hauteur de la page: <span id="height"></span> et largeur de la page: <span id="width"></span></p>
+
+    <script>
+        const CurrentWidth = document.querySelector('#width');
+        const CurrentHeight = document.querySelector('#height');
+        window.addEventListener('resize', resize);
+
+
+        function resize(){
+            CurrentWidth.textContent = window.innerWidth;
+            CurrentHeight.textContent = window.innerHeight;
+        }
+
+        
+    </script>
+</body>
+</html>

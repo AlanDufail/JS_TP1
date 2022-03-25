@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function revert(str) {
+        return str.split("").reverse().join("");
+      }
+
+      function ucFirst(word) {
+        let splitString = word.split("");
+        let Uppercase = word.split("")[0].toUpperCase();
+        splitString[0] = Uppercase;
+        return splitString.join("");
+      }
+
+      function capitalize(str) {
+        return str
+          .split(" ")
+          .map(function (word) {
+            return word[0].toUpperCase() + word.substring(1);
+          })
+          .join(" ");
+      }
+
+      function pascalCase(str) {
+        return str
+          .split(" ")
+          .map(function (word) {
+            return word[0].toUpperCase() + word.substring(1);
+          })
+          .join("");
+      }
+
+      function palindrome(str) {
+        let tmp = str.split(" ").join("").toLowerCase();
+        if (tmp === str.split("").reverse().join("").toLowerCase()) {
+          return "Vrai: Le mot " + str + " est un palindrome";
+        } else {
+          return "Faux: le mot n'est pas un palindrome";
+        }
+      }
+
+      function findLongestWord(str) {
+        let tmpWord = "";
+        let words = str.split(" ");
+        console.log(words.length);
+        for (let i = 0; i < words.length; i++) {
+          let tmp = words[i];
+          if (tmp.length > tmpWord.length) {
+            longestWord = tmp;
+          }
+        }
+        return longestWord.length();
+      }
+    </script>
+  </body>
+</html>
