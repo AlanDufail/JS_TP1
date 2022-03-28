@@ -47,16 +47,21 @@
       }
 
       function findLongestWord(str) {
-        let tmpWord = "";
+        let max = 0;
+        let longestWord = "";
         let words = str.split(" ");
-        console.log(words.length);
         for (let i = 0; i < words.length; i++) {
-          let tmp = words[i];
-          if (tmp.length > tmpWord.length) {
-            longestWord = tmp;
+          let tmp = words[i].length;
+          console.log(tmp);
+          if(tmp >= max){
+            max = tmp;
+            longestWord = words[i];
+            console.log("La nouvelle valeur max est égal à: "+ tmp);
+          }else{
+            console.log('cc');
           }
+          return "Le mot : "+ longestWord +" est le plus long, celui-ci contient "+ max +" characters."
         }
-        return longestWord.length();
       }
     </script>
   </body>
