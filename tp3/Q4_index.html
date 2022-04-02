@@ -22,15 +22,10 @@
             li.innerHTML = e.code + " " + i;
             
             if(i <= MAX){
-                console.log('if');
-                console.log(i);
-
                 ul.appendChild(li);
             }else{
                 document.querySelector("li:nth-child(1)").remove();
                 ul.append(li);
-                console.log('Ajout dans la liste ok');
-
             }
         }
     </script>

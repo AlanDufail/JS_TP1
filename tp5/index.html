@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getHashTags(str) { 
+      }
+
+
+      const tab = [0,2,4,6,8,8];
+      function removeDuplicate(arr){
+        return arr.filter((val,index) => arr.indexOf(val) === index);
+      }
+      
+      const first = [0,2,4,6,8,8];
+      const second = [1,2,3,4,5,6];
+
+      function intersection(arr,arr2){
+        return arr.filter(e => arr2.includes(e));
+      }
+      function arrayDiff(arr,arr2){
+        return arr.filter(e => !arr2.includes(e)).concat(arr2.filter(e => !arr.includes(e)));
+      }
+
+      function combinations(){
+        return Array.from(arguments).forEach(e => {console.log(e*e)})
+      }
+      //function calls
+      console.log(getHashTags("How the Avocado Became the Fruit of the Global Trade"));
+      console.log(getHashTags("Why You Will Probably Pay More for Your Christmas Tree This Year"));
+      console.log(getHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruit"));
+      console.log(getHashTags("Visualizing Science"));
+      console.log(removeDuplicate(tab));
+      console.log(intersection(first,second));
+      console.log(arrayDiff(first,second));
+      console.log(combinations(2,3));
+      console.log(combinations(3,7,4));
+      console.log(combinations(2,3,4,5));
+    </script>
+  </body>
+</html>
