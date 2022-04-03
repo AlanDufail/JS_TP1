@@ -8,7 +8,10 @@
   </head>
   <body>
     <script>
-      function getHashTags(str) { 
+      function getHashTags(str) {
+        let i = str.split(' ').map(x => x.length)
+        return i;
+
       }
 
 
@@ -28,13 +31,14 @@
       }
 
       function combinations(){
-        return Array.from(arguments).forEach(e => {console.log(e*e)})
+        return (Array.from(arguments).reduce( (previousVal,currentVal) => previousVal * currentVal ));
       }
       //function calls
       console.log(getHashTags("How the Avocado Became the Fruit of the Global Trade"));
       console.log(getHashTags("Why You Will Probably Pay More for Your Christmas Tree This Year"));
       console.log(getHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruit"));
       console.log(getHashTags("Visualizing Science"));
+      console.log('///////////////////////////:')
       console.log(removeDuplicate(tab));
       console.log(intersection(first,second));
       console.log(arrayDiff(first,second));
