@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        let Matt = {name:"Matt",surname:"Edabit",gender:"M",dob:"1/1/1900"};
+        let Helen = {name:"Helen",surname:"Yu",gender:"F",dob:"1/12/1950"};
+        let Mickey = {name:"Mickey",surname:"Mouse",gender:"M",dob:"16/1/1928"};
+
+        let person = [Matt,Helen,Mickey];
+
+        function fiscaleCode(person){
+            const surname = get3ConsonantSurName(person)
+            const name = get3Consonantname(person)
+            const year = getYear(person); 
+            const month = getMonth(person);
+            const day = getDay(person);
+            const fiscaleCode = surname + name + year + month + day;
+
+            console.log(fiscaleCode);
+            return fiscaleCode;
+           
+        }   
+
+        function get3ConsonantSurName(person){
+            const addX = "X";
+            let Psurname = person.surname.toUpperCase();
+            let PsurnameNovowel = Psurname.replace(/[aeiou]/gi,''); //delete all vowels in the name string
+            const PsurnameNoConsonant = Psurname.replace(/[b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y,z ]/gi,''); //delete all consonants in the name string
+
+            if(PsurnameNovowel.length >= 3){ //si nombre de consonne supérieur ou égal à 3
+                PsurnameNovowel = PsurnameNovowel.slice(0,3); 
+                //console.log('Si nombre de consonne >= 3: '+ PsurnameNovowel);
+            }
+            else if(PsurnameNovowel.length == 2){  //si nombre de consonne égal à 2
+                if(PsurnameNoConsonant.length >= 1){ //on vérifie la nombre de voyelle, si il y a des voyelles on ajoute la string des voyelles à la string des consonnes
+                    PsurnameNovowel = PsurnameNovowel.concat(PsurnameNoConsonant);
+                    PsurnameNovowel = PsurnameNovowel.slice(0,3);
+                    //console.log('Si nombre de consonne = 2 et nombre de voyelle >= 1: '+ PsurnameNovowel)
+                }else{ //on vérifie la nombre de voyelle, si il n'y a pas de voyelle on ajoute la string des voyelles à la string des consonnes
+                    PsurnameNovowel = PsurnameNovowel.concat(addX);
+
+                    //console.log('Si nombre de consonne = 2 et pas de voyelle: ' + PsurnameNovowel);
+                }
+            }
+            else{ //si nombre de consonne inférieur à 2
+                if(PsurnameNoConsonant.length == 1){ //on vérifie la nombre de voyelle, si il y a des voyelles on ajoute la string des voyelles à la string des consonnes
+                    PsurnameNovowel = PsurnameNovowel.concat(PsurnameNoConsonant);
+                    PsurnameNovowel = PsurnameNovowel.concat(addX);
+                    //console.log('Si nombre de consonne = 1 et nombre de voyelle = 1: ' + PsurnameNovowel);
+                }else if(PsurnameNoConsonant.length >= 2){
+                    PsurnameNovowel = PsurnameNovowel.concat(PsurnameNoConsonant);
+                    PsurnameNovowel = PsurnameNovowel.slice(0,3);
+                    //console.log('Si nombre de consonne = 1 et nombre de voyelle >= 2: ' + PsurnameNovowel);
+                }else{ //
+                    for(let i = 0 ; i < 2; i++){
+                        PsurnameNovowel = PsurnameNovowel.concat(addX);
+                    }
+                    //console.log('Si nombre de consonne = 1 et pas de voyelle: ' + PsurnameNovowel);
+                }
+            }
+
+            return PsurnameNovowel;
+        }
+
+        function get3Consonantname(person){
+            const addX = "X";
+            let Pname = person.name.toUpperCase();
+            let PnameNovowel = Pname.replace(/[aeiou]/gi,''); //delete all vowels in the name string
+            const PnameNoConsonant = Pname.replace(/[b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y,z ]/gi,''); //delete all consonants in the name string
+            
+            if(PnameNovowel.length > 3){ //si nombre de consonne supérieur à 3
+                PnameNovowel = PnameNovowel.split('');
+                PnameNovowel = PnameNovowel[0] + PnameNovowel[2] + PnameNovowel[3];
+                //console.log('Si nombre de consonne >= 3: '+ PnameNovowel);
+            }
+            else if(PnameNovowel.length == 3){//si nombre de consonne égal à 3
+                PnameNovowel = PnameNovowel.slice(0,3); 
+                //console.log('Si nombre de consonne = 3: '+ PnameNovowel);
+            }
+            else if(PnameNovowel.length == 2){  //si nombre de consonne égal à 2
+                if(PnameNovowel.length >= 1){ //on vérifie la nombre de voyelle, si il y a des voyelles on ajoute la string des voyelles à la string des consonnes
+                    PnameNovowel = PnameNovowel.concat(PnameNoConsonant);
+                    PnameNovowel = PnameNovowel.slice(0,3);
+                    //console.log('Si nombre de consonne = 2 et nombre de voyelle >= 1: '+ PnameNovowel)
+                }else{ //on vérifie la nombre de voyelle, si il n'y a pas de voyelle on ajoute la string des voyelles à la string des consonnes
+                    PnameNovowel = PnameNovowel.concat(addX);
+                    //console.log('Si nombre de consonne = 2 et pas de voyelle: ' + PnameNovowel);
+                }
+            }
+            else{ //si nombre de consonne inférieur à 2
+                if(PnameNoConsonant.length == 1){ //on vérifie la nombre de voyelle, si il y a des voyelles on ajoute la string des voyelles à la string des consonnes
+                    PnameNovowel = PnameNovowel.concat(PnameNoConsonant);
+                    PnameNovowel = PnameNovowel.concat(addX);
+                    //console.log('Si nombre de consonne = 1 et nombre de voyelle = 1: ' + PnameNovowel);
+                }else if(PnameNoConsonant.length >= 2){
+                    PnameNovowel = PnameNovowel.concat(PnameNoConsonant);
+                    PnameNovowel = PnameNovowel.slice(0,3);
+                    //console.log('Si nombre de consonne = 1 et nombre de voyelle >= 2: ' + PnameNovowel);
+                }else{ //
+                    for(let i = 0 ; i < 2; i++){
+                        PnameNovowel = PnameNovowel.concat(addX);
+                    }
+                    //console.log('Si nombre de consonne = 1 et pas de voyelle: ' + PnameNovowel);
+                }
+            }
+
+            return PnameNovowel;
+        }
+
+        function getYear(person){
+            let Pyear = person.dob;
+            Pyear = Pyear.slice(-2);
+            //console.log(Pyear);
+            return Pyear;
+        }
+
+        function getMonth(person){
+            let Pmonth = person.dob;
+            Pmonth = Pmonth.slice(-7,-5);
+            if(Pmonth.includes('/')){
+                Pmonth = Pmonth.replace('/','')
+            }
+            switch (Pmonth) { 
+                case "1":
+                    Pmonth = "A"
+                    break;
+                case "2":
+                    Pmonth = "B";
+                    break;
+                case "3":
+                    Pmonth = "C";
+                    break;
+                case "4":
+                    Pmonth = "D";
+                    break;
+                case "5":
+                    Pmonth = "E";
+                    break;
+                case "6":
+                    Pmonth = "H"
+                    break;
+                case "7":
+                    Pmonth = "L";
+                    break;
+                case "8":
+                    Pmonth = "M";
+                    break;
+                case "9":
+                    Pmonth = "P";
+                    break;
+                case "10":
+                    Pmonth = "R";
+                    break;
+                case "11":
+                    Pmonth = "S";
+                    break;
+                case "12":
+                    Pmonth = "T";
+                    break;
+            
+                default:
+                    console.log("error")
+                    break;
+            }
+
+            //console.log(Pmonth);
+            return Pmonth;
+        }
+
+        function getDay(person){
+            let Pday = person.dob;
+            const Pgender = person.gender;
+            Pday = Pday.slice(0,2);
+            if(Pday.includes('/')){
+                Pday = Pday.replace('/','')
+            }
+            if(Pgender == "F"){
+                Pday = parseInt(Pday) + 40;
+                //console.log(Pday);
+
+            }else{
+                if(parseInt(Pday) < 10){
+                    Pday = 0 + Pday;
+                }
+                //console.log(Pday);
+            }
+            return Pday;
+        }
+
+        //function calls
+        console.log("///////////FiscalCode generate/////////////////");
+        fiscaleCode(person[0]);
+        fiscaleCode(person[1]);
+        fiscaleCode(person[2]);
+
+    </script>   
+</body>
+</html>

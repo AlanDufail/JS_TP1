@@ -13,11 +13,13 @@
         return i;
 
       }
+       // const getHashTags = (sentence) => sentence.split(" ").sort((a, b) => b.length - a.length).splice(0, 3).map(( word) => `#${word.toLowerCase()}`)
 
 
       const tab = [0,2,4,6,8,8];
       function removeDuplicate(arr){
-        return arr.filter((val,index) => arr.indexOf(val) === index);
+        //return arr.filter((val,index) => arr.indexOf(val) === index);
+        //return [...new Set(arr)]
       }
       
       const first = [0,2,4,6,8,8];
