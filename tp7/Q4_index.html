@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+        async function verifyString(str){
+            try{
+                const myPromise = await myPromise(str);
+            }catch (e){
+                console.log(e);
+            }
+            const myPromise = (str) => {
+                return new Promise((resolve,reject) => {
+                if (str.length <= 20){
+                    reject('Promesse echoué');
+                }else{
+                    resolve('Promesse true');
+                }
+            })
+            }
+        }
+
+        //function calls
+        verifyString("Hello my name is jeff");
+    </script>
+</body>
+</html>

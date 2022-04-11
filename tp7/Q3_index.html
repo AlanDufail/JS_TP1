@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+        function verifyDOB(date){
+            const today = new Date();
+            const todayDate =  today.getDate();
+            const todayMonth = today.getMonth()+1;
+            const todayYear = today.getFullYear();
+            // let date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+            // if (!(date_regex.test(date))) {
+            //     console.log('date pas au bon format');
+            //     return false;
+            // }
+            const resultDate = todayDate - date.slice(0,2);
+            const resultMonth = todayMonth - date.slice(3,5);
+            const resultYear = todayYear - date.slice(6,10);
+
+            return new Promise((resolve,reject) => {
+                if(resultYear <= 18 && resultMonth <= 0 && resultDate < 0){
+                    reject('Vous êtes mineur: accès refusé');
+                }else{
+                    resolve('Age validé !')
+                    return true;
+                }
+            })
+            
+
+        }
+
+        //function calls
+        let myPromise = verifyDOB('12/04/2022');
+        myPromise.then((message) => {
+            console.log(message);
+        }).catch((message) => {
+            console.log(message);
+        });
+
+    </script>
+</body>
+</html>
