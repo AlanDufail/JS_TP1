@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function verifyString(str) {
+        let myPromise = new Promise((resolve, reject) => {
+          if (str.length <= 20) {
+            reject("Promesse echoué");
+          } else {
+            resolve("Promesse true");
+          }
+        });
+        try {
+          let res = await myPromise;
+          console.log(res);
+          return res;
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      async function verifyInt(nb1, nb2) {
+        let myPromise = new Promise((resolve, reject) => {
+          if (nb1 > nb2) {
+            resolve(nb1 - nb2);
+          } else {
+            reject("Promise failed");
+          }
+        });
+
+        try {
+          let res = await myPromise;
+          console.log(res);
+          return res;
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      async function verifyDOB(date) {
+        const today = new Date();
+        const todayDate = today.getDate();
+        const todayMonth = today.getMonth() + 1;
+        const todayYear = today.getFullYear();
+        let dateRegex =
+          /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i;
+        if (!dateRegex.test(date)) {
+          console.log("La date n'est pas au bon format");
+          return false;
+        } else {
+          console.log("ici");
+          const resultDate = todayDate - date.slice(0, 2);
+          const resultMonth = todayMonth - date.slice(3, 5);
+          const resultYear = todayYear - date.slice(6, 10);
+
+          let myPromise = new Promise((resolve, reject) => {
+            if (resultYear <= 18 && resultMonth < 0 || resultDate < 0) {
+              reject("Vous êtes mineur: accès refusé !");
+            } else {
+              resolve("Vous êtes majeur: accès confirmé !");
+            }
+          });
+
+          try{
+              let res = await myPromise;
+              console.log(res);
+              return res;
+          }catch(e){
+              console.log(e);
+          }
+        }
+      }
+
+      //function calls
+      verifyString("Hello world this is my first promess");
+      verifyInt(16,7);
+      verifyDOB('12/03/2004');
+    </script>
+  </body>
+</html>

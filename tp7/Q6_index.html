@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul id="navbar"></ul>
+      </nav>
+      <section id="content"></section>
+    </header>
+
+    <script>
+      const urls = {
+        baseUrl: "https://swapi.dev/api/",
+        people: "people/",
+        starships: "starships/",
+        planets: "planets/",
+      };
+
+      async function createNavbar() {
+        const navbar = document.querySelector("#navbar");
+        let myPromise = new Promise((resolve,reject)=> {
+            if(navbar){
+
+                resolve('Promise sucess')
+            }else{
+                reject('Promise fail');
+            }
+        })
+        try{
+            let res = await myPromise;
+            for (let url in urls) {
+                if (url != "baseUrl") {
+                    let link = document.createElement("a");
+                    link.innerHTML = url;
+                    link.href = `${urls.baseUrl}${urls[url]}`;
+                    link.setAttribute('data', `${urls.baseUrl}${urls[url]}`);
+                    link.id = "link";
+                    navbar.append(link);
+                }
+        }
+        }catch(e){
+            console.error(e);
+        }
+
+      }
+
+      async function getStarWarsData(e){
+        const link = e.target;
+        const url = document.querySelector("a").getAttribute("href");
+        try{
+            await fetch(url).then((res) => {
+            if(res.status == '200'){
+                return res.json();
+            }else{
+                throw console.error(res.status);
+            }
+        })
+        .then(createListforData)
+        .catch((e)=>{
+            console.error(e);
+        });
+        }catch(e){
+            console.error(e);
+        }
+
+      }
+
+      function createListforData(data){
+        let section = document.querySelector("section");
+        console.log(data);
+        section.innerHTML = data.results.map((info) =>{
+            let starWarsInfo = info.name;
+            return `<p>${starWarsInfo}</p>`
+        }).join(' ');
+        
+      }
+
+      function addOnclick(id,callback){
+          console.log(id);
+          console.log(callback);
+        document.getElementById(id).addEventListener("click", callback);
+      }
+
+      function initSite(){
+          createNavbar();
+          addOnclick("link",getStarWarsData);
+
+      }
+      window.addEventListener("DOMContentLoaded", initSite);
+    </script>
+  </body>
+</html>
