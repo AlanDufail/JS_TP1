@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const object = {
+        a: [{ x: 2 }, { y: 4 }],
+        b: 1,
+      };
+
+      const other = {
+        a: { z: 3 },
+        b: [2, 3],
+        c: "foo",
+      };
+
+
+      const merge = (obj1, obj2) => {
+        const keys = Object.keys(obj2);
+        let newObj = {...obj1};
+        for (let i = 0; i < keys.length; i += 1) {
+          const key = keys[i];
+          const value = obj2[key];
+          if (typeof value === "object" && value !== null) {
+            newObj = { ...newObj, ...merge(newObj, value) };
+          } else {
+            newObj = { ...newObj, [key]: value };
+          }
+        }
+        return newObj;
+      };
+
+      //function call
+      console.log(merge(object, other));
+    </script>
+  </body>
+</html>
